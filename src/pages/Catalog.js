@@ -33,7 +33,7 @@ export const Catalog = () => {
           >
             Cadastrar
           </button>
-          {open && <ModalRegister />}
+          {open && <ModalRegister onclick={handleModal}/>}
           <Filter />
         </div>
       </header>

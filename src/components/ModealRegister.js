@@ -6,7 +6,7 @@ import { useStoreContext } from "../context";
 const FUEL = ["GASOLINA", "ETANOL", "FLEX", "DIESEL", "ELÉTRICO"];
 const { cars: CARS } = CARS_BRAND_MOCK;
 
-export const ModalRegister = () => {
+export const ModalRegister = ({ onclick }) => {
   const { cars, setCars } = useStoreContext();
   const [formData, setFormData] = useState({
     id: CARS.length + 1,
@@ -34,8 +34,9 @@ export const ModalRegister = () => {
     }
 
     CARS.push(formData);
-    localStorage.setItem("cars", JSON.stringify(CARS))
+    localStorage.setItem("cars", JSON.stringify(CARS));
     setCars([...cars, formData]);
+    onclick()
   };
 
   const isValidForm = () => {
@@ -180,6 +181,13 @@ export const ModalRegister = () => {
               className="my-6 hover:bg-secundary py-2 px-4 ring-2 ring-secundary-500/50 rounded-sm font-medium bg-logo"
             >
               Cadastrar
+            </button>
+            <button
+              onClick={onclick}
+              type="button"
+              className="my-2 bg-secundary py-2 px-4 ring-2 ring-secundary-500/50 rounded-sm font-medium hover:bg-logo"
+            >
+              Cancelar
             </button>
           </form>
         </div>
