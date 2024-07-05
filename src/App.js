@@ -15,31 +15,48 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      {cars.length > 0 &&
-        cars.map((car) => (
-          <article key={car.id}>
-            <img src="" alt="" />
-            <section>
-              <header>
-                <h1 className="font-semibold text-xl">{car.nome_modelo}</h1>
-                <p className="font-medium opacity-75">{car.ano}</p>
-              </header>
-              <main>
-                <div>
-                  <p>Portas: {car.num_portas}</p>
-                  <p>Combustivel: {car.combustivel}</p>
-                </div>
-                <hr />
-                <div>
-                  <p>Cor: {car.cor}</p>
-                  <p>Preço: {car.valor}</p>
-                </div>
-              </main>
-              <button>Comprar</button>
-            </section>
-          </article>
-        ))}
+    <div className="App min-h-screen">
+      <main className="w-full h-full flex flex-col justify-center items-center p-4">
+        <section className="flex flex-wrap justify-evenly gap-4 w-10/12">
+          {cars.length > 0 &&
+            cars.map((car) => (
+              <article key={car.id} className="border border-gray-200 rounded-lg shadow">
+                <img src="" alt="" />
+                <section className="flex flex-col items-center my-2 gap-4">
+                  <header className="mb-2">
+                    <h1 className="font-semibold text-xl">{car.nome_modelo}</h1>
+                    <p className="font-medium opacity-75">{car.ano}</p>
+                  </header>
+                  <main className="flex gap-2 divide-x-2 divide-slate-400/25">
+                    <div className="flex flex-col justify-between items-center min-w-36 px-2">
+                      <p className="text-sm">
+                        Portas:
+                        <span className="font-medium"> {car.num_portas}</span>
+                      </p>
+                      <p className="text-sm">
+                        Combustivel:
+                        <span className="font-medium"> {car.combustivel}</span>
+                      </p>
+                    </div>
+                    <div className="flex flex-col justify-between items-center min-w-36 px-2">
+                      <p className="text-sm">
+                        Cor: <span className="font-medium"> {car.cor}</span>
+                      </p>
+                      <p className="text-sm">
+                        Preço:{" "}
+                        <span className="font-medium text-xl">
+                          {" "}
+                          {car.valor}
+                        </span>
+                      </p>
+                    </div>
+                  </main>
+                  <button>Comprar</button>
+                </section>
+              </article>
+            ))}
+        </section>
+      </main>
     </div>
   );
 }
