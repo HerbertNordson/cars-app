@@ -63,7 +63,7 @@ export const ModalRegister = ({ onclick }) => {
   }
 
   return (
-    <div className="absolute inset-0 bg-color-op z-10">
+    <div className="absolute inset-0 bg-color-op z-10 w-full h-full">
       <div className="flex justify-center item-center flex-col w-full h-full">
         <div className="relative m-auto w-10/12 md:w-2/4 flex flex-col items-center justify-center bg-secundary py-2 rounded-xl">
           <header className="flex justify-between items-center mb-10 flex-col md:flex-row gap-2">
