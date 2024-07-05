@@ -10,6 +10,10 @@ export const Catalog = () => {
 
   const { cars, loading } = useStoreContext();
 
+  function handleModal() {
+    setOpen(!open)
+  }
+
   return (
     <main className="w-full h-full flex flex-col justify-center p-4 w-base m-auto gap-10">
       <header className="flex justify-around items-end">
@@ -25,7 +29,7 @@ export const Catalog = () => {
         <div className="flex gap-4 items-center">
           <button
             className="bg-secundary py-2 px-4 ring-2 ring-secundary-500/50 rounded-sm font-medium hover:bg-logo"
-            onClick={() => setOpen(!open)}
+            onClick={handleModal}
           >
             Cadastrar
           </button>
