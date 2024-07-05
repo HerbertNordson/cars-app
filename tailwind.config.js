@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         primary: "#25293c",
         secundary: "#2f3349",
+        'color-op': '#000000cc',
 
         txt: "#e1def5",
         logo: "#7367f0",

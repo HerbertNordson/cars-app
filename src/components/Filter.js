@@ -1,20 +1,13 @@
 import { useStoreContext } from "../context";
+import { SelectBrand } from "./SelectBrand";
 
 export const Filter = () => {
-  const { brands, filterCars } = useStoreContext();
+  const { filterCars } = useStoreContext();
   return (
     <section>
       <div>
         <label className="font-medium mr-2">Filtrar: </label>
-        <select
-          className="bg-secundary"
-          onChange={(ev) => filterCars(ev.target.value)}
-        >
-        <option value={null} selected>TODAS</option>
-          {brands.map((item) => (
-            <option value={item.id}>{item.value}</option>
-          ))}
-        </select>
+        <SelectBrand onclick={filterCars} all={true}/>
       </div>
     </section>
   );

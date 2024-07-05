@@ -9,7 +9,7 @@ const CARS_BRAND_MOCK = {
       num_portas: 4,
       cor: "BRANCA",
       nome_modelo: "ETIOS",
-      valor: 36.0,
+      valor: 36.000,
       brand: 1,
     },
     {
@@ -21,7 +21,7 @@ const CARS_BRAND_MOCK = {
       num_portas: 4,
       cor: "PRETO",
       nome_modelo: "COROLLA",
-      valor: 120.0,
+      valor: 120.000,
       brand: 1,
     },
     {
@@ -33,7 +33,7 @@ const CARS_BRAND_MOCK = {
       num_portas: 4,
       cor: "AZUL",
       nome_modelo: "HILLUX SW4",
-      valor: 47.5,
+      valor: 47.500,
       brand: 1,
     },
   ],

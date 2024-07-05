@@ -18,7 +18,15 @@ export const StoreProvider = ({ children }) => {
 
   const getCars = useCallback(
     function () {
-      const newCars = CAR.map((item) => item);
+      let newCars = [];
+      if (localStorage.getItem("cars")) {
+        const arr = JSON.parse(localStorage.getItem("cars"));
+        newCars = arr.map((item) => item);
+      } else {
+        newCars = CAR.map((item) => item);
+        localStorage.setItem("cars", JSON.stringify(newCars));
+      }
+
       setCars(newCars);
       setLoading(false);
     },
@@ -27,6 +35,7 @@ export const StoreProvider = ({ children }) => {
 
   const getBrands = useCallback(function () {
     const brand = BRANDS.map((item) => item);
+    localStorage.setItem("brands", JSON.stringify(brand));
     setBrands(brand);
   }, []);
 
@@ -34,8 +43,15 @@ export const StoreProvider = ({ children }) => {
     function (brand) {
       setLoading(true);
       if (brand === "TODAS") return getCars();
+
+      let carsFilter = []
+      if (localStorage.getItem("cars")) {
+        const arr = JSON.parse(localStorage.getItem("cars"));
+        carsFilter = arr.filter((item) => item.brand === +brand);
+      } else {
+        carsFilter = CAR.filter((item) => item.brand === +brand);
+      }
       
-      const carsFilter = CAR.filter((item) => item.brand === +brand);
       setCars(carsFilter);
       setLoading(false);
     },
@@ -50,11 +66,12 @@ export const StoreProvider = ({ children }) => {
   const value = useMemo(
     () => ({
       cars,
+      setCars,
       brands,
       loading,
       filterCars,
     }),
-    [cars, brands, loading, filterCars]
+    [cars, setCars, brands, loading, filterCars]
   );
 
   return (
